@@ -1,5 +1,4 @@
 "use strict";
-const container = document.querySelector(".container");
 const slides = document.querySelectorAll(".slide");
 function removeActive() {
   slides.forEach((slide) => {
@@ -7,7 +6,10 @@ function removeActive() {
   });
 }
 
-container.addEventListener("click", function (event) {
-  removeActive();
-  event.target.closest(".slide").classList.add("active");
-});
+for (let slide of slides) {
+  slide.addEventListener("click", function () {
+    removeActive();
+
+    slide.classList.add("active");
+  });
+}
